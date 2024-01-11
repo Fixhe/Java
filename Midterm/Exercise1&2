@@ -1,0 +1,59 @@
+Exercise: Convert Short Date to Full Date
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        String date;
+        int year, month, day;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Input Date(YYYY-MM-DD:");
+        date = input.nextLine();
+        String[] datepart = date.split("-");
+        year = Integer.parseInt(datepart[0]);
+        month = Integer.parseInt(datepart[1]);
+        day = Integer.parseInt(datepart[2]);
+        String monthName = getMonthName(month);
+        System.out.println(monthName + " " + day + ", " + year);
+    }
+
+    private static String getMonthName(int month) {
+        String[] monthNames = {"", "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"};
+
+        if (month >= 1 && month <= 12) {
+            return monthNames[month];
+        } else {
+            return "Invalid Month";
+        }
+    }
+}
+=================
+Rectangle
+class rectangle {
+    public double length;
+    public double width;
+
+    public rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+    public double getterarea() {
+        return length * width;
+    }
+    public double getterperimeter() {
+        return 2 * (length + width);
+    }
+}
+
+class Square extends rectangle {
+    public Square(double side) {
+        super(side, side);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Square square = new Square(5.0);
+        System.out.println("S_area: " + square.getterarea());
+        System.out.println("S_Perimeter: " + square.getterperimeter());
+    }
+}
